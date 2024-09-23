@@ -8,7 +8,7 @@ export class CreatePostDto {
   @IsNotEmpty()
   description: string;
 
-    @IsNotEmpty()
-    color: string;
+  @IsNotEmpty()
+  color: string;
 }
 
