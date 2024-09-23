@@ -16,15 +16,13 @@ export class PostService {
     private commentsRepository: Repository<Comment>,
   ) {}
 
+  // This method will create a new post and return it
   create(postData: CreatePostDto): Promise<Post> {
     const post = this.postsRepository.create(postData);
     return this.postsRepository.save(post);
   }
 
-  // findAllPosts(): Promise<Post[]> {
-  //   return this.postsRepository.find({ relations: ['comments'] });
-  // }
-
+  // This method will find all the posts and return them
   async findAllPosts(): Promise<any[]> {
     const posts = await this.postsRepository
       .createQueryBuilder('post')
@@ -41,6 +39,8 @@ export class PostService {
       comments: post.comments,
     }));
   }
+
+  // This method will find a post by its ID and return it
   findPostById(id: number): Promise<Post> {
     const post = this.postsRepository.findOne({ where: { id }, relations: ['comments'] });
     if (!post) {
@@ -49,6 +49,7 @@ export class PostService {
     return post;
   }
 
+  // This method will create a new comment and return it
   async createComment(commentData: CreateCommentDto): Promise<Comment> {
     const post = await this.postsRepository.findOne({ where: { id: commentData.postId } });
     if (!post) {
