@@ -1,6 +1,6 @@
 ## Description
 
-Backend for Medichive app. This is built with [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Backend for rootcode . This is built with [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
 
@@ -12,7 +12,17 @@ $ yarn install
 
 ## Running the app
 
-1. Create a copy of the `sample.env` file and rename it to `.env`
+1. Create a `.env` file. Example is given below.
+```
+PORT=8080
+
+# Databse configs
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+DATABASE_NAME=rootcode
+DATABASE_USER=root
+DATABASE_PASSWORD=root
+```
 2. Run the app. Following are the running commands
 
     ```bash
